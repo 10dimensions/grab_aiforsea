@@ -34,6 +34,11 @@ df = pd.read_csv(url, chunksize = 10000)
 
 ### Pre-Processing
 
+- GeoHash converted to numericsl Lat/Lon
+- Day of recording converted as Day of Week. Traffic intensities usually recur on weekly basis
+- Timestamp converted to total minutes elapsed, which is then factored by 10 to aid in feature normalization
+- Demand (label) matric is also factored
+
 ```python
 def gh_decode(hash):
     lat, lon = pygeohash.decode(hash)
